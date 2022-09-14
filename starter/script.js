@@ -48,6 +48,37 @@ const restaurant = {
   },
 };
 
+console.log('---- OR ----');
+// Use ANY date type, return ANY data type, short-circuiting
+console.log(3 || 'Jonas');
+console.log('' || 'Jonas');
+console.log(true || 0);
+console.log(undefined || null);
+
+console.log(undefined || 0 || '' || 'Hello' || 23 || null); // Result is hello because it is the first Truthy value out of all the Falsy values
+
+restaurant.numGuests = 23;
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 23;
+console.log(guests1); // Result is 10 because numGuests does not exist in parent element
+
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+
+console.log('---- AND ----');
+console.log(0 && 'Jonas');
+console.log(7 && 'Jonas');
+
+console.log('Hello' && 23 && null && 'Jonas');
+
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushrooms', 'spinach');
+}
+
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+
+/*
+//////////////////////////////////////////////////////////////////////////////////////////////
+// Rest Pattern and Parameters
 // 1) Destructuring
 
 // SPREAD, because on RIGHT side of =
@@ -84,7 +115,6 @@ add(...x);
 restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
 restaurant.orderPizza('mushrooms');
 
-/*
 ///////////////////////////////////////////////////////////////////////////////////////////////
 // The Spread Operator (...)
 
