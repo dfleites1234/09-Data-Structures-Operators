@@ -48,6 +48,18 @@ const restaurant = {
   },
 };
 
+restaurant.numGuests = 0;
+const guests = restaurant.numGuests || 10;
+console.log(guests);
+
+// Nullish: null and undefined (NOT 0 or '')
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
+
+/*
+//////////////////////////////////////////////////////////////////////////////////////////////
+// Short Circuiting (&& and ||)
+
 console.log('---- OR ----');
 // Use ANY date type, return ANY data type, short-circuiting
 console.log(3 || 'Jonas');
@@ -74,9 +86,8 @@ if (restaurant.orderPizza) {
   restaurant.orderPizza('mushrooms', 'spinach');
 }
 
-restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');0000000
 
-/*
 //////////////////////////////////////////////////////////////////////////////////////////////
 // Rest Pattern and Parameters
 // 1) Destructuring
