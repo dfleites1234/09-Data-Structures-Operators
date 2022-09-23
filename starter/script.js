@@ -1,52 +1,144 @@
 'use strict';
 
-const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
-const openingHours = {
-  [weekdays[3]]: {
-    open: 12,
-    close: 22,
-  },
-  [weekdays[4]]: {
-    open: 11,
-    close: 23,
-  },
-  [weekdays[5]]: {
-    open: 0, // Open 24 hours
-    close: 24,
-  },
-};
-
-// Data needed for first part of the section
-const restaurant = {
-  name: 'Classico Italiano',
-  location: 'Via Angelo Tavanti 23, Firenze, Italy',
-  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
-  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
-  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-
-  // ES6 enhanced object literals
-  openingHours,
-
-  order(starterIndex, mainIndex) {
-    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
-  },
-  orderDelivery({ starterIndex = 1, mainIndex = 0, time = '20:00', address }) {
-    console.log(
-      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
-    );
-  },
-
-  orderPasta(ing1, ing2, ing3) {
-    console.log(
-      `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
-    );
-  },
-
-  orderPizza(mainIngredient, ...otherIngredients) {
-    console.log(mainIngredient);
-    console.log(otherIngredients);
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
   },
 };
+
+// 1.
+const [players1, players2] = game.players;
+console.log(players1, players2);
+
+// 2.
+const [gk, ...fieldPlayers] = players1;
+console.log(gk, fieldPlayers);
+
+// 3.
+const allPlayers = [...players1, ...players2];
+console.log(allPlayers);
+
+// 4.
+const players1Final = [...players1, 'Thiago', 'Coutinho', 'Periscic'];
+
+// 5.
+const {
+  odds: { team1, x: draw, team2 },
+} = game;
+console.log(team1, draw, team2);
+
+// 6.
+const printGoals = function (...players) {
+  console.log(`${players.length} goals were scored`);
+};
+
+// printGoals('Davies', 'Kimmich', 'Muller', 'Lewandowski');
+// printGoals('Davies', 'Muller');
+printGoals(...game.scored);
+
+// 7.
+team1 < team2 && console.log('Team 1 is more likely to win');
+team1 > team2 && console.log('Team 2 is more likely to win');
+
+// Coding Challenge #2
+
+// 1)
+const scoringPlayers = [...game.scored];
+
+for (const [i] of scoringPlayers.entries()) {
+  console.log(`Goal ${i + 1}: ${scoringPlayers[i]} `);
+}
+
+// for (const item of scoringPlayers) console.log(item);
+
+//***Reset here***
+// const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+// const openingHours = {
+//   [weekdays[3]]: {
+//     open: 12,
+//     close: 22,
+//   },
+//   [weekdays[4]]: {
+//     open: 11,
+//     close: 23,
+//   },
+//   [weekdays[5]]: {
+//     open: 0, // Open 24 hours
+//     close: 24,
+//   },
+// };
+
+// // Data needed for first part of the section
+// const restaurant = {
+//   name: 'Classico Italiano',
+//   location: 'Via Angelo Tavanti 23, Firenze, Italy',
+//   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+//   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+//   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+
+//   // ES6 enhanced object literals
+//   openingHours,
+
+//   order(starterIndex, mainIndex) {
+//     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+//   },
+//   orderDelivery({ starterIndex = 1, mainIndex = 0, time = '20:00', address }) {
+//     console.log(
+//       `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+//     );
+//   },
+
+//   orderPasta(ing1, ing2, ing3) {
+//     console.log(
+//       `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
+//     );
+//   },
+
+//   orderPizza(mainIngredient, ...otherIngredients) {
+//     console.log(mainIngredient);
+//     console.log(otherIngredients);
+//   },
+// };
+
+/*
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// Looping Objects: Object Keys, Values and Entries
 
 // Property NAMES
 const properties = Object.keys(openingHours);
@@ -72,7 +164,6 @@ for (const [key, { open, close }] of entries) {
   console.log(`On the ${key} we open at ${open} and close at ${close}`);
 }
 
-/*
 //////////////////////////////////////////////////////////////////////////////////////////////////
 // Optional Chaining (?.)
 if (restaurant.openingHours && restaurant.openingHours.mon)
