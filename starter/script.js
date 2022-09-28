@@ -51,6 +51,46 @@ const restaurant = {
 //////////////////////////////////////////////////////////////////////////////////////////////////
 // Working with Strings- Part 1
 
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log('B737'[0]);
+
+console.log(airline.length);
+console.log('b737'.length);
+
+console.log(airline.indexOf('r'));
+console.log(airline.lastIndexOf('r'));
+console.log(airline.indexOf('portugal')); // case sensitive
+
+console.log(airline.slice(4));
+console.log(airline.slice(4, 7)); // it's always going to be the end minus the beginning... (4, 7)... 7 - 4
+
+console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+console.log(airline.slice(-2)); // This will extract from the end
+console.log(airline.slice(1, -1)); // Specifying a negative end parameter: The beginning is back to positive and now the end is minus one (-1) and we start at position 1 and the negative cuts off the end parameter
+
+const checkMiddleSeat = function (seat) {
+  // B and E are middle seats
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') console.log('You got the middle seat');
+  else console.log('You got lucky');
+};
+
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
+
+console.log(new String('jonas')); // Shows the string
+console.log(typeof new String('jonas')); // Shows 'Object'
+
+console.log(typeof new String('jonas').slice(1)); // Shows 'String'
+
 /*
 //////////////////////////////////////////////////////////////////////////////////////////////////
 // Coding Challenge #3
