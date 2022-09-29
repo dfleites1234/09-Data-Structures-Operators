@@ -49,6 +49,26 @@ const restaurant = {
 };
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
+// Coding Challenge #4
+
+// Test Data:
+// underscore_case;
+// first_name;
+// Some_Variable;
+// calculate_AGE;
+// delayed_departure;
+
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+const text = document.querySelector('textarea').value;
+
+document.querySelector('button').addEventListener('click', function () {
+  const text = document.querySelector('textarea').value;
+  console.log(text);
+});
+
+/*
+//////////////////////////////////////////////////////////////////////////////////////////////////
 // Working with Strings- Part 3
 
 // Split and join
@@ -100,7 +120,6 @@ planesInLine(5);
 planesInLine(3);
 planesInLine(12);
 
-/*
 //////////////////////////////////////////////////////////////////////////////////////////////////
 // Working with Strings- Part 2
 
