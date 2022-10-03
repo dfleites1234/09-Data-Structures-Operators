@@ -49,6 +49,9 @@ const restaurant = {
 };
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
+// String Methods Practice
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
 // Coding Challenge #4
 
 // Test Data:
@@ -60,29 +63,27 @@ const restaurant = {
 
 document.body.append(document.createElement('textarea'));
 document.body.append(document.createElement('button'));
-// const text = document.querySelector('textarea').value;
 
 document.querySelector('button').addEventListener('click', function () {
   const text = document.querySelector('textarea').value;
   const rows = text.split('\n');
-  // console.log(rows);
 
-  for (const row of rows) {
+  for (const [i, row] of rows.entries()) {
     const [first, second] = row.toLowerCase().trim().split('_');
-    console.log(row, first, second);
+
     const output = `${first}${second.replace(
       second[0],
       second[0].toUpperCase()
     )}`;
-    console.log(output);
+    console.log(`${output.padEnd(20)}${'✅'.repeat(i + 1)}`);
   }
 });
 
 // underscore_case -> underscoreCase
 // underscore_case
-// first_name
+//  first_name
 // Some_Variable
-// calculate_AGE
+//  calculate_AGE
 // delayed_departure
 
 /*
